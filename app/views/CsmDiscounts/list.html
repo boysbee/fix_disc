@@ -22,7 +22,7 @@
                     <td>${item.businessOwner}</td>
                     <td>${item.projectStartDate}</td>
                     <td>${item.projectEndDate}</td>
-                    <td> <a class="icon-flag" href="@{testJob(item.pk.jobName,item.pk.ucrNo,item.pk.discountCode)}"></a></td>
+                    <td> <a class="icon-flag" href="@{TestJob.testJob(item.pk.jobName,item.pk.ucrNo,item.pk.discountCode)}"></a></td>
                 </tr>
             #{/list}
         </tbody>
