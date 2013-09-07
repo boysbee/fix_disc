@@ -1,0 +1,77 @@
+#{extends 'main.html' /}
+#{set title:'Search' /}
+
+<h1>Search CSM Discounts</h1>
+
+<p><span>job name: </span><input type="text" id="jobName" name="jobName" size="30"><span>discount code: </span><input type="text" id="discountCode" name="discountCode" size="30"></p>
+<p><span>ucr no: </span><input type="text" id="ucrNo" name="ucrNo" size="30"><span>keyword: </span><input type="text" id="keyword" name="keyword" size="30"></p>
+<p>Maximum results: 
+    <select id="size">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="20">20</option>
+    </select>
+<input class="btn" type="submit" id="submit" value="Find Discount"> </p>
+<div class="btn-toolbar">
+    <button class="btn btn-primary" name="addJob" id="addJob">Add Job Description</button>
+
+</div>
+<div id="result">
+</div>
+
+<script type="text/javascript" charset="${_response_encoding}">
+    $("#addJob").live('click',function(){
+        var link = '@{add()}';
+        window.location = link;
+    })
+    // Rebuild state
+    $('#jobName').val(sessvars.jobName) ;   
+    $('#discountCode').val(sessvars.discountCode) ;   
+    $('#ucrNo').val(sessvars.ucrNo) ;   
+    $('#keyword').val(sessvars.keyword);
+    if(sessvars.page == undefined) {
+        sessvars.page = 1
+    }
+    if(sessvars.size == undefined) {
+        sessvars.size = 10
+    }
+    $('#size option[value='+sessvars.size+']').attr('selected', 'true')
+    
+    // Search function
+    var search = function() {
+        sessvars.jobName = $('#jobName').val()
+        sessvars.discountCode = $('#discountCode').val()
+        sessvars.ucrNo = $('#ucrNo').val()
+        sessvars.size = $('#size').val()
+        var listAction = #{jsAction @list(':jobName',':discountCode',':ucrNo', ':keyword',':size', ':page') /} 
+        $('#result').load(listAction({jobName: sessvars.jobName, discountCode: sessvars.discountCode,ucrNo :  sessvars.ucrNo, keyword : sessvars.keyword,size: sessvars.size, page: sessvars.page}), function() {
+            $('#content').css('visibility', 'visible')
+        })
+    }
+    
+    // // Events handler
+    $('#submit').click(function() {
+        sessvars.page = 1
+        search()
+    })
+    // $('#jobName').keyup(function() {
+    //     sessvars.page = 1
+    //     search()
+    // })
+    // $('#keyword').keyup(function() {
+    //     sessvars.page = 1
+    //     search()
+    // })
+    $('#nextPage').live('click', function(e) {
+        sessvars.page = $(this).attr('href')
+        e.preventDefault()
+        search()        
+    })
+    
+    // Init
+    if(sessvars.jobName != undefined || sessvars.discountCode != undefined || sessvars.ucrNo != undefined || sessvars.keyword != undefined) {
+        $('#content').css('visibility', 'hidden')
+        search()
+    }
+    
+</script>

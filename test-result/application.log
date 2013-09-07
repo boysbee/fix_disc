@@ -1,0 +1,45 @@
+06 Sep 2013 22:31:31,013 INFO  ~ Starting D:\play_proj\fix_disc
+06 Sep 2013 22:31:32,845 WARN  ~ You're running Play! in DEV mode
+06 Sep 2013 22:31:33,067 INFO  ~ Listening for HTTP on port 9000 (Waiting a first request to start) ...
+06 Sep 2013 22:32:32,415 ERROR ~ Cannot connected to the database : Io exception: The Network Adapter could not establish the connection
+java.sql.SQLException: Io exception: The Network Adapter could not establish the connection
+	at oracle.jdbc.dbaccess.DBError.throwSqlException(DBError.java:134)
+	at oracle.jdbc.dbaccess.DBError.throwSqlException(DBError.java:179)
+	at oracle.jdbc.dbaccess.DBError.throwSqlException(DBError.java:333)
+	at oracle.jdbc.driver.OracleConnection.<init>(OracleConnection.java:404)
+	at oracle.jdbc.driver.OracleDriver.getConnectionInstance(OracleDriver.java:468)
+	at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:314)
+	at java.sql.DriverManager.getConnection(DriverManager.java:582)
+	at java.sql.DriverManager.getConnection(DriverManager.java:185)
+	at play.db.DBPlugin.onApplicationStart(DBPlugin.java:109)
+	at play.plugins.PluginCollection.onApplicationStart(PluginCollection.java:525)
+	at play.Play.start(Play.java:533)
+	at play.Play.detectChanges(Play.java:649)
+	at play.Invoker$Invocation.init(Invoker.java:198)
+	at Invocation.HTTP Request(Play!)
+06 Sep 2013 22:32:34,665 ERROR ~ 
+
+@6fg89b438
+Internal Server Error (500) for request GET /csm_discount
+
+Database error
+A database error occured : Cannot connected to the database, Io exception: The Network Adapter could not establish the connection
+
+play.exceptions.DatabaseException: Cannot connected to the database, Io exception: The Network Adapter could not establish the connection
+	at play.db.DBPlugin.onApplicationStart(DBPlugin.java:161)
+	at play.plugins.PluginCollection.onApplicationStart(PluginCollection.java:525)
+	at play.Play.start(Play.java:533)
+	at play.Play.detectChanges(Play.java:649)
+	at play.Invoker$Invocation.init(Invoker.java:198)
+	at Invocation.HTTP Request(Play!)
+Caused by: java.sql.SQLException: Io exception: The Network Adapter could not establish the connection
+	at oracle.jdbc.dbaccess.DBError.throwSqlException(DBError.java:134)
+	at oracle.jdbc.dbaccess.DBError.throwSqlException(DBError.java:179)
+	at oracle.jdbc.dbaccess.DBError.throwSqlException(DBError.java:333)
+	at oracle.jdbc.driver.OracleConnection.<init>(OracleConnection.java:404)
+	at oracle.jdbc.driver.OracleDriver.getConnectionInstance(OracleDriver.java:468)
+	at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:314)
+	at java.sql.DriverManager.getConnection(DriverManager.java:582)
+	at java.sql.DriverManager.getConnection(DriverManager.java:185)
+	at play.db.DBPlugin.onApplicationStart(DBPlugin.java:109)
+	... 5 more

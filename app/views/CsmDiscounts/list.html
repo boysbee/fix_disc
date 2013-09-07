@@ -1,0 +1,40 @@
+#{if csmdiscounts}
+    <table class="table-striped">
+        <thead>
+            <tr>
+                <th>Job Name</th>
+                <th>Discount</th>
+                <th>UCR No</th>
+                <th width="8%">Dev</th>
+                <th width="13%">Business Owner</th>
+                <th width="10%">Project Start Date</th>
+                <th width="10%">Project End Date</th>
+                <th width="10%">Test</th>
+            </tr>
+        </thead>
+        <tbody>
+            #{list csmdiscounts, as:'item'}
+                <tr>
+                    <td> <a href="@{show(item.pk.jobName,item.pk.ucrNo,item.pk.discountCode)}">${item.pk.jobName}</a></td>
+                    <td>${item.pk.discountCode}</td>
+                    <td>${item.pk.ucrNo}</td>
+                    <td>${item.devName}</td>
+                    <td>${item.businessOwner}</td>
+                    <td>${item.projectStartDate}</td>
+                    <td>${item.projectEndDate}</td>
+                    <td> <a class="icon-flag" href="@{testJob(item.pk.jobName,item.pk.ucrNo,item.pk.discountCode)}"></a></td>
+                </tr>
+            #{/list}
+        </tbody>
+    </table>
+    <br/>
+    <p>
+        <a class="btn" id="nextPage" href="${page+1}">More results</a>
+    </p>
+#{/if}
+
+#{else}
+    <p>
+        No more results
+    </p>
+#{/else}      

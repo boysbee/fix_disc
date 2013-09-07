@@ -1,0 +1,135 @@
+#{extends 'main.html' /}
+#{set title:'CSM DISCOUNT '/}
+#{set 'moreScripts'}
+    <script src="@{'/public/javascripts/jquery-ui-1.7.2.custom.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+#{/set}
+#{set 'moreStyles'}
+    <link rel="stylesheet" type="text/css" media="screen" href="@{'/public/ui-lightness/jquery-ui-1.7.2.custom.css'}" />
+#{/set}
+
+<h1>CSM Discount</h1>
+
+#{form @save()}
+ #{field 'item.pk.jobName'}
+    <p class="${field.errorClass}"> 
+        <strong>Job Name *:</strong><input type="text" size="20" name="${field.name}" id="${field.name}"   value=" ${item.pk?.jobName}">
+        <span class="error">${field.error}</span>
+    </p>
+    #{/field}
+    #{field 'item.pk.ucrNo'}
+    <p class="${field.errorClass}">
+        <strong>UCR NO * :</strong><input type="text" size="50" name="${field.name}" id="${field.name}"  value=" ${item.pk?.ucrNo}">   
+        <span class="error">${field.error}</span>
+    </p>
+    #{/field}
+    #{field 'item.pk.discountCode'}
+    <p class="${field.errorClass}">
+        <strong>Discount Code *:</strong><input type="text" size="10" name="${field.name}" id="${field.name}"   value=" ${item.pk?.discountCode}">  
+        <span class="error">${field.error}</span>
+    </p>
+    #{/field}
+    #{field 'item.devName'}
+    <p class="${field.errorClass}">
+        <strong>Dev Name:</strong><input type="text" size="50" name="${field.name}" id="${field.name}"   value=" ${item?.devName}"> 
+        <span class="error">${field.error}</span>
+    </p>
+    #{/field}
+    #{field 'item.businessOwner'}
+    <p class="${field.errorClass}">
+        <strong>Business Owner:</strong><input type="text" size="50" name="${field.name}" id="${field.name}"   value=" ${item?.businessOwner}">  
+        <span class="error">${field.error}</span>
+    </p>
+    #{/field}
+     #{field 'item.accType'}
+    <p class="${field.errorClass}">
+        <strong>ACCOUNT TYPE * :</strong><input type="text" size="3" name="${field.name}" id="${field.name}"  value=" ${item?.accType}">   
+        <span class="error">${field.error}</span>
+    </p>
+    #{/field}
+ #{field 'item.accCate'}
+    <p class="${field.errorClass}">
+        <strong>ACCOUNT CATEGORY* :</strong>
+        <input type="radio" name="${field.name}" id="${field.name}" value="B" }> B
+        <input type="radio" name="${field.name}" id="${field.name}" value="C" > C
+        <input type="radio" name="${field.name}" id="${field.name}" value="I" > I
+        <span class="error">${field.error}</span>
+    </p>
+    #{/field}
+    #{field 'item.propo'}
+    <p class="${field.errorClass}">
+        <strong>PROPOSITION CODE * :</strong><input type="text" size="10" name="${field.name}" id="${field.name}"  value=" ${item?.propo}">   
+        <span class="error">${field.error}</span>
+    </p>
+    #{/field}
+ #{field 'item.pp'}
+    <p class="${field.errorClass}">
+        <strong>PRICE PLAN * :</strong><input type="text" size="10" name="${field.name}" id="${field.name}"  value=" ${item?.pp}">   
+        <span class="error">${field.error}</span>
+    </p>
+    #{/field}
+     #{field 'item.soc'}
+    <p class="${field.errorClass}">
+        <strong>SOC * :</strong><input type="text" size="10" name="${field.name}" id="${field.name}"  value=" ${item?.soc}">   
+        <span class="error">${field.error}</span>
+    </p>
+    #{/field}
+     #{field 'item.keyword'}
+    <p class="${field.errorClass}">
+        <strong>KEYWORD * :</strong><input type="text" size="50" name="${field.name}" id="${field.name}"  value=" ${item?.keyword}">   
+        <span class="error">${field.error}</span>
+    </p>
+    #{/field}
+     #{field 'item.actvCode'}
+    <p class="${field.errorClass}">
+        <strong>ACTV CODE * :</strong><input type="text" size="5" name="${field.name}" id="${field.name}"  value=" ${item?.actvCode}">   
+        <span class="error">${field.error}</span>
+    </p>
+    #{/field}
+     #{field 'item.actvRsnCode'}
+    <p class="${field.errorClass}">
+        <strong>ACTV RSN CODE * :</strong><input type="text" size="5" name="${field.name}" id="${field.name}"  value=" ${item?.actvRsnCode}">   
+        <span class="error">${field.error}</span>
+    </p>
+    #{/field}
+     #{field 'item.benefit'}
+    <p class="${field.errorClass}">
+        <strong>BENEFIT * :</strong><input type="text" size="5" name="${field.name}" id="${field.name}"  value=" ${item?.benefit}">   
+        <span class="error">${field.error}</span>
+    </p>    
+    #{/field}
+     #{field 'item.advancePayment'}
+    <p class="${field.errorClass}">
+        <strong>ADVANCE PAYMENT * :</strong><input type="text" size="10" name="${field.name}" id="${field.name}"  value=" ${item?.advancePayment}">   
+        <span class="error">${field.error}</span>
+    </p>
+    #{/field}
+     
+    #{field 'item.projectStartDate'}
+    <p class="${field.errorClass}">
+        <strong>Project Start Date:</strong> <input type="text" size="10" name="${field.name}" id="${field.name}"  class="datepicker" value="${item?.projectStartDate?.format('yyyy-MM-dd')}"> *
+        <span class="error">${field.error}</span>
+    </p>
+    #{/field}
+    #{field 'item.projectEndDate'}
+    <p class="${field.errorClass}">
+        <strong>Project End Date:</strong> <input type="text" size="10" name="${field.name}" id="${field.name}"  class="datepicker" value="${item?.projectEndDate?.format('yyyy-MM-dd')}"> *
+        <span class="error">${field.error}</span>
+    </p>
+    #{/field}
+    #{field 'item.remark'}
+    <p class="${field.errorClass}">
+        <strong>REMARK * :</strong><textarea name="${field.remark}" id="${field.remark}"  cols="20" rows="5" value="${item?.remark}"></textarea>   
+        <span class="error">${field.error}</span>
+    </p>
+    #{/field}
+</br></br></br>
+    <p class="buttons">
+        <input type="submit" value="Proceed"> <a href="@{index()}">Cancel</a>    
+    </p>
+#{/form}
+
+<script type="text/javascript" charset="${_response_encoding}">
+    $(function() {
+		$(".datepicker").datepicker({dateFormat: 'yy-mm-dd'});
+	});
+</script>

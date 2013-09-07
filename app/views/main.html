@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>#{get 'title' /}</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=${_response_encoding}">
+        <link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/main.css'}">
+
+        #{get 'moreStyles' /}
+        <link rel="shortcut icon" type="image/png" href="@{'/public/images/online_icon.png'}">
+        #{addscript /}
+
+        #{get 'moreScripts' /}
+        <style type="text/css">
+            body {
+                margin: 0;
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                font-size: 12px;
+                line-height: 20px;
+                color: #333333;
+                background-color: #ffffff;
+            }
+        </style>
+    </head>
+    <body>
+    <div class="container">
+        <div class="row-fluid">
+        <div class="span1">
+            <div id="header" class="container-general span12">
+            </div>
+        </div>
+        <div class="span10"> 
+            <div id="content" class="container-general span12">
+
+            #{doLayout /}
+            </div><!-- end content -->
+        </div>
+        <div class="span1"></div>
+        </div>
+        <div class="row">
+            <div id="footer" class="container-general span12">
+
+            </div><!-- end footer -->
+        </div>
+    </div> <!-- end container -->
+
+    </body>
+</html>

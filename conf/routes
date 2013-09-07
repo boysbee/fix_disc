@@ -1,0 +1,26 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                                       Application.index
+
+# cms_discount
+GET		/csm_discount							CsmDiscounts.index
+GET     /csm_discount/list                      CsmDiscounts.list
+GET		/csm_discount/show						CsmDiscounts.show
+GET		/csm_discount/add						CsmDiscounts.add
+POST	/csm_discount/save						CsmDiscounts.save
+GET		/csm_discount/testJob					CsmDiscounts.testJob
+GET     /csm_discount/testResult                CsmDiscounts.testResult
+
+# Ignore favicon requests
+
+GET     /favicon.ico                            404
+
+# Map static resources from the /app/public folder to the /public path
+GET     /public/                                staticDir:public
+
+# Catch all
+*       /{controller}/{action}                  {controller}.{action}
+

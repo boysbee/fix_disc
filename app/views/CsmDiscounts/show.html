@@ -1,0 +1,61 @@
+#{extends 'main.html' /}
+#{set title:item.pk.jobName /}
+
+<h1>View Csm Discount</h1>
+
+    <p>
+        <strong>Job Name:</strong> ${item.pk.jobName}
+    </p>
+    <p>
+        <strong>Discount Code:</strong> ${item.pk.discountCode}
+    </p>
+    <p>
+        <strong>Ucr No:</strong> ${item.pk.ucrNo}
+    </p>
+    <p>
+        <strong>Dev Name:</strong> ${item.devName}
+    </p>
+    <p>
+        <strong>Business Owner:</strong> ${item.businessOwner}
+    </p>
+    <p>
+        <strong>Proposition :</strong> ${item.propo}
+    </p>
+    <p>
+        <strong>Price plan:</strong> ${item.pp}
+    </p>
+    <p>
+        <strong>Soc :</strong> ${item.soc}
+    </p>
+    <p>
+        <strong>Actv Code:</strong> ${item.actvCode}
+    </p>
+    <p>
+        <strong>Actv Rsn Code:</strong> ${item.actvRsnCode}
+    </p>
+    <p>
+        <strong>Account Type:</strong> ${item.accType}
+    </p>
+    <p>
+        <strong>Account Category:</strong> ${item.accCate}
+    </p>
+    <p>
+        <strong>Benefit:</strong> ${item.benefit}
+    </p>
+    <p>
+        <strong>Advance Payment:</strong> ${item.benefit}
+    </p>
+    <p>
+        <strong>Remark:</strong> ${item.remark}
+    </p>
+    <p>
+        <strong>Project Start Date:</strong> ${item.projectStartDate}
+    </p>
+    <p>
+        <strong>Project End Date:</strong> ${item.projectEndDate}
+    </p>
+    
+    <p class="buttons">
+        <a class="btn" href="@{CsmDiscounts.index()}">Back to search</a>      
+    </p>
+
