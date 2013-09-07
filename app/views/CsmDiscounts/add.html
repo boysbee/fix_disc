@@ -7,127 +7,213 @@
     <link rel="stylesheet" type="text/css" media="screen" href="@{'/public/ui-lightness/jquery-ui-1.7.2.custom.css'}" />
 #{/set}
 
-<h1>CSM Discount</h1>
+<form class="form-horizontal" method="POST" action='@{save()}'>
+<fieldset>
+    <div id="legend">
+      <legend class="">Add Job Discount</legend>
+    </div>
+    #{field 'item.pk.jobName'}
+    <div class="control-group">
+        <!-- JOB NAME -->
+      <label class="control-label"  for="jobName">Job Name</label>
+      <div class="controls">
+        <input type="text" size="20" name="${field.name}" id="${field.name}"   value=" ${item.pk?.jobName}">
+        <span class="error">${field.error}</span>
+        <p class="help-block">Please provide your job name.</p>
+      </div>
+    </div>
+    #{/field}
+        #{field 'item.pk.ucrNo'}
+    <div class="control-group">
+        <!-- JOB NAME -->
+      <label class="control-label"  for="ucrNo">UCR NO</label>
+      <div class="controls">
+        <input type="text" size="20" name="${field.name}" id="${field.name}"   value=" ${item.pk?.ucrNo}">
+        <span class="error">${field.error}</span>
+        <p class="help-block">Please provide your ucr no.</p>
+      </div>
+    </div>
+    #{/field}
 
-#{form @save()}
- #{field 'item.pk.jobName'}
-    <p class="${field.errorClass}"> 
-        <strong>Job Name *:</strong><input type="text" size="20" name="${field.name}" id="${field.name}"   value=" ${item.pk?.jobName}">
+         #{field 'item.pk.discountCode'}
+    <div class="control-group">
+        <!-- JOB NAME -->
+      <label class="control-label"  for="discountCode">DISCOUNT CODE</label>
+      <div class="controls">
+        <input type="text" size="20" name="${field.name}" id="${field.name}"   value=" ${item.pk?.discountCode}">
         <span class="error">${field.error}</span>
-    </p>
+        <p class="help-block">Please provide your discount code.</p>
+      </div>
+    </div>
     #{/field}
-    #{field 'item.pk.ucrNo'}
-    <p class="${field.errorClass}">
-        <strong>UCR NO * :</strong><input type="text" size="50" name="${field.name}" id="${field.name}"  value=" ${item.pk?.ucrNo}">   
+             #{field 'item.devName'}
+    <div class="control-group">
+        <!-- JOB NAME -->
+      <label class="control-label"  for="devName">Developer Name</label>
+      <div class="controls">
+        <input type="text" size="20" name="${field.name}" id="${field.name}"   value=" ${item?.devName}">
         <span class="error">${field.error}</span>
-    </p>
+        <p class="help-block">Please provide your developer name.</p>
+      </div>
+    </div>
     #{/field}
-    #{field 'item.pk.discountCode'}
-    <p class="${field.errorClass}">
-        <strong>Discount Code *:</strong><input type="text" size="10" name="${field.name}" id="${field.name}"   value=" ${item.pk?.discountCode}">  
+
+             #{field 'item.businessOwner'}
+    <div class="control-group">
+        <!-- JOB NAME -->
+      <label class="control-label"  for="businessOwner">BUSINESS OWNER</label>
+      <div class="controls">
+        <input type="text" size="20" name="${field.name}" id="${field.name}"   value=" ${item?.businessOwner}">
         <span class="error">${field.error}</span>
-    </p>
+        <p class="help-block">Please provide your business owner.</p>
+      </div>
+    </div>
     #{/field}
-    #{field 'item.devName'}
-    <p class="${field.errorClass}">
-        <strong>Dev Name:</strong><input type="text" size="50" name="${field.name}" id="${field.name}"   value=" ${item?.devName}"> 
+ #{field 'item.accType'}
+    <div class="control-group">
+        <!-- JOB NAME -->
+      <label class="control-label"  for="accType">ACCOUNT TYPE</label>
+      <div class="controls">
+        <input type="text" size="20" name="${field.name}" id="${field.name}"   value=" ${item?.accType}">
         <span class="error">${field.error}</span>
-    </p>
+        <p class="help-block">Please provide your account type.</p>
+      </div>
+    </div>
     #{/field}
-    #{field 'item.businessOwner'}
-    <p class="${field.errorClass}">
-        <strong>Business Owner:</strong><input type="text" size="50" name="${field.name}" id="${field.name}"   value=" ${item?.businessOwner}">  
+#{field 'item.accCate'}
+    <div class="control-group">
+        <!-- JOB NAME -->
+      <label class="control-label"  for="accCate">ACCOUNT CATEGORY</label>
+      <div class="controls">
+        <input type="checkbox" name="${field.name}" id="${field.name}" value="B" > B
+        <input type="checkbox" name="${field.name}" id="${field.name}" value="C" > C
+        <input type="checkbox" name="${field.name}" id="${field.name}" value="I" > I
         <span class="error">${field.error}</span>
-    </p>
+        <p class="help-block">Please provide your account category.</p>
+      </div>
+    </div>
     #{/field}
-     #{field 'item.accType'}
-    <p class="${field.errorClass}">
-        <strong>ACCOUNT TYPE * :</strong><input type="text" size="3" name="${field.name}" id="${field.name}"  value=" ${item?.accType}">   
+
+    #{field 'item.pp'}
+    <div class="control-group">
+        <!-- JOB NAME -->
+      <label class="control-label"  for="pp">PRICE PLAN</label>
+      <div class="controls">
+        <input type="text" size="20" name="${field.name}" id="${field.name}"   value=" ${item?.pp}">
         <span class="error">${field.error}</span>
-    </p>
+        <p class="help-block">Please provide your price plan.</p>
+      </div>
+    </div>
     #{/field}
- #{field 'item.accCate'}
-    <p class="${field.errorClass}">
-        <strong>ACCOUNT CATEGORY* :</strong>
-        <input type="radio" name="${field.name}" id="${field.name}" value="B" }> B
-        <input type="radio" name="${field.name}" id="${field.name}" value="C" > C
-        <input type="radio" name="${field.name}" id="${field.name}" value="I" > I
+        #{field 'item.soc'}
+    <div class="control-group">
+        <!-- JOB NAME -->
+      <label class="control-label"  for="soc">SOC</label>
+      <div class="controls">
+        <input type="text" size="20" name="${field.name}" id="${field.name}"   value=" ${item?.soc}">
         <span class="error">${field.error}</span>
-    </p>
+        <p class="help-block">Please provide your soc.</p>
+      </div>
+    </div>
     #{/field}
-    #{field 'item.propo'}
-    <p class="${field.errorClass}">
-        <strong>PROPOSITION CODE * :</strong><input type="text" size="10" name="${field.name}" id="${field.name}"  value=" ${item?.propo}">   
+            #{field 'item.keyword'}
+    <div class="control-group">
+        <!-- JOB NAME -->
+      <label class="control-label"  for="keyword">KEYWORD</label>
+      <div class="controls">
+        <input type="text" size="20" name="${field.name}" id="${field.name}"   value=" ${item?.keyword}">
         <span class="error">${field.error}</span>
-    </p>
+        <p class="help-block">Please provide your keyword.</p>
+      </div>
+    </div>
     #{/field}
- #{field 'item.pp'}
-    <p class="${field.errorClass}">
-        <strong>PRICE PLAN * :</strong><input type="text" size="10" name="${field.name}" id="${field.name}"  value=" ${item?.pp}">   
+
+    #{field 'item.actvCode'}
+    <div class="control-group">
+        <!-- JOB NAME -->
+      <label class="control-label"  for="actvCode">ACTV_CODE</label>
+      <div class="controls">
+        <input type="text" size="20" name="${field.name}" id="${field.name}"   value=" ${item?.actvCode}">
         <span class="error">${field.error}</span>
-    </p>
+        <p class="help-block">Please provide your activity Code.</p>
+      </div>
+    </div>
     #{/field}
-     #{field 'item.soc'}
-    <p class="${field.errorClass}">
-        <strong>SOC * :</strong><input type="text" size="10" name="${field.name}" id="${field.name}"  value=" ${item?.soc}">   
+    #{field 'item.actvRsnCode'}
+    <div class="control-group">
+        <!-- JOB NAME -->
+      <label class="control-label"  for="actvRsnCode">ACTV_RSN_CODE</label>
+      <div class="controls">
+        <input type="text" size="20" name="${field.name}" id="${field.name}"   value=" ${item?.actvRsnCode}">
         <span class="error">${field.error}</span>
-    </p>
+        <p class="help-block">Please provide your activity reason code.</p>
+      </div>
+    </div>
     #{/field}
-     #{field 'item.keyword'}
-    <p class="${field.errorClass}">
-        <strong>KEYWORD * :</strong><input type="text" size="50" name="${field.name}" id="${field.name}"  value=" ${item?.keyword}">   
+    #{field 'item.benefit'}
+    <div class="control-group">
+        <!-- JOB NAME -->
+      <label class="control-label"  for="benefit">BENEFIT</label>
+      <div class="controls">
+        <input type="text" size="20" name="${field.name}" id="${field.name}"   value=" ${item?.benefit}">
         <span class="error">${field.error}</span>
-    </p>
-    #{/field}
-     #{field 'item.actvCode'}
-    <p class="${field.errorClass}">
-        <strong>ACTV CODE * :</strong><input type="text" size="5" name="${field.name}" id="${field.name}"  value=" ${item?.actvCode}">   
-        <span class="error">${field.error}</span>
-    </p>
-    #{/field}
-     #{field 'item.actvRsnCode'}
-    <p class="${field.errorClass}">
-        <strong>ACTV RSN CODE * :</strong><input type="text" size="5" name="${field.name}" id="${field.name}"  value=" ${item?.actvRsnCode}">   
-        <span class="error">${field.error}</span>
-    </p>
-    #{/field}
-     #{field 'item.benefit'}
-    <p class="${field.errorClass}">
-        <strong>BENEFIT * :</strong><input type="text" size="5" name="${field.name}" id="${field.name}"  value=" ${item?.benefit}">   
-        <span class="error">${field.error}</span>
-    </p>    
+        <p class="help-block">Please provide your benefit.</p>
+      </div>
+    </div>
     #{/field}
      #{field 'item.advancePayment'}
-    <p class="${field.errorClass}">
-        <strong>ADVANCE PAYMENT * :</strong><input type="text" size="10" name="${field.name}" id="${field.name}"  value=" ${item?.advancePayment}">   
+    <div class="control-group">
+        <!-- JOB NAME -->
+      <label class="control-label"  for="advancePayment">ADVANCE PAYMENT</label>
+      <div class="controls">
+        <input type="text" size="20" name="${field.name}" id="${field.name}"   value=" ${item?.advancePayment}">
         <span class="error">${field.error}</span>
-    </p>
+        <p class="help-block">Please provide your advance payment.</p>
+      </div>
+    </div>
     #{/field}
-     
-    #{field 'item.projectStartDate'}
-    <p class="${field.errorClass}">
-        <strong>Project Start Date:</strong> <input type="text" size="10" name="${field.name}" id="${field.name}"  class="datepicker" value="${item?.projectStartDate?.format('yyyy-MM-dd')}"> *
+     #{field 'item.projectStartDate'}
+    <div class="control-group">
+        <!-- JOB NAME -->
+      <label class="control-label"  for="projectStartDate">PROJECT START DATE</label>
+      <div class="controls">
+        <input type="text" size="20" class="datepicker" name="${field.name}" id="${field.name}"   value=" ${item?.projectStartDate}">
         <span class="error">${field.error}</span>
-    </p>
+        <p class="help-block">Please provide your project start date.</p>
+      </div>
+    </div>
     #{/field}
-    #{field 'item.projectEndDate'}
-    <p class="${field.errorClass}">
-        <strong>Project End Date:</strong> <input type="text" size="10" name="${field.name}" id="${field.name}"  class="datepicker" value="${item?.projectEndDate?.format('yyyy-MM-dd')}"> *
+     #{field 'item.projectEndDate'}
+    <div class="control-group">
+        <!-- JOB NAME -->
+      <label class="control-label"  for="projectEndDate">PROJECT END DATE</label>
+      <div class="controls">
+        <input type="text" size="20" class="datepicker" name="${field.name}" id="${field.name}"   value=" ${item?.projectEndDate}">
         <span class="error">${field.error}</span>
-    </p>
+        <p class="help-block">Please provide your project end date.</p>
+      </div>
+    </div>
     #{/field}
-    #{field 'item.remark'}
-    <p class="${field.errorClass}">
-        <strong>REMARK * :</strong><textarea name="${field.remark}" id="${field.remark}"  cols="20" rows="5" value="${item?.remark}"></textarea>   
+     #{field 'item.remark'}
+    <div class="control-group">
+        <!-- JOB NAME -->
+      <label class="control-label"  for="remark">REMARK</label>
+      <div class="controls">
+        <textarea name="${field.remark}" id="${field.remark}"  cols="20" rows="5" value="${item?.remark}"></textarea>   
         <span class="error">${field.error}</span>
-    </p>
+        <p class="help-block">Please provide your remark.</p>
+      </div>
+    </div>
     #{/field}
-</br></br></br>
-    <p class="buttons">
-        <input type="submit" value="Proceed"> <a href="@{index()}">Cancel</a>    
-    </p>
-#{/form}
-
+    <div class="control-group">
+      <!-- Button -->
+      <div class="controls">
+        <button class="btn btn-success">Proceed</button>
+         <a href="@{index()}" class="btn btn-primary" name="back" id="back">Cancel</a>  
+      </div>
+    </div>
+</fieldset>
+</form>
 <script type="text/javascript" charset="${_response_encoding}">
     $(function() {
 		$(".datepicker").datepicker({dateFormat: 'yy-mm-dd'});

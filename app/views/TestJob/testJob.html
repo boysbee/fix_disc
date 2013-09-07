@@ -1,18 +1,62 @@
 #{extends 'main.html' /}
 #{set title:'Test' /}
 
-<h1>Test</h1>
-<p><span>ban: </span><input type="text" id="ban" name="ban" size="30"><span>subscriber no: </span><input type="text" id="subscriberNo" name="subscriberNo" size="30"> <input class="btn" type="submit" id="submit" value="Test"></p>
-<input type="hidden" id="ucrNo" name="ucrNo">
-<input type="hidden" id="jobName" name="jobName">
-<input type="hidden" id="discountCode" name="discountCode">
-
-</br>
-    <p class="buttons">
-        <a href="@{CsmDiscounts.index()}">Back to search</a>      
-    </p>
-</br>
-<div id="result">
+<form class="form-horizontal" method="POST">
+    <input type="hidden" id="ucrNo" name="ucrNo" value="${ucrNo}">
+    <input type="hidden" id="jobName" name="jobName" value="${jobName}">
+    <input type="hidden" id="discountCode" name="discountCode" value="${discountCode}">
+  <fieldset>
+    <div id="legend">
+      <legend class="">Test Job Discount</legend>
+    </div>
+    <div class="control-group">
+      <!-- BAN -->
+      <label class="control-label"  for="jobName">JOB NAME</label>
+      <div class="controls">
+        <input type="text" id="jobName" name="jobName" placeholder="" value="${jobName}" class="input-xlarge">
+        <p class="help-block">Please provide your test ban.</p>
+      </div>
+      <div class="control-group">
+      <!-- UCR NO -->
+      <label class="control-label"  for="ucrNo">UCR NO</label>
+      <div class="controls">
+        <input type="text" id="ucrNo" name="ucrNo" placeholder="" value="${ucrNo}" class="input-xlarge">
+        <p class="help-block">Please provide your test ucr.</p>
+      </div>
+      <div class="control-group">
+      <!-- DISCOUNT -->
+      <label class="control-label"  for="discountCode">DISCOUNT PLAN</label>
+      <div class="controls">
+        <input type="text" id="discountCode" name="discountCode" placeholder="" value="${discountCode}" class="input-xlarge">
+        <p class="help-block">Please provide your test discount.</p>
+      </div>
+    <div class="control-group">
+      <!-- BAN -->
+      <label class="control-label"  for="ban">BAN</label>
+      <div class="controls">
+        <input type="text" id="ban" name="ban" placeholder="" class="input-xlarge">
+        <p class="help-block">Please provide your test ban.</p>
+      </div>
+      <!-- SUBSCRIBERNO -->
+        <label class="control-label" for="subscriberNo">Subscriber No</label>
+      <div class="controls">
+        <input type="text" id="subscriberNo" name="subscriberNo" placeholder="" class="input-xlarge">
+        <p class="help-block">Please provide your test subscriber no.</p>
+      </div>
+    </div>
+ 
+    <div class="control-group">
+      <!-- Button -->
+      <div class="controls">
+        <a class="btn btn-success" href="#">Test</button>
+        <a class="btn" href="@{CsmDiscounts.index()}">Back</a>  
+      </div>
+    </div>
+  </fieldset>
+</form>
+<div class="row">
+    <div id="result">
+    </div>
 </div>
 
 <script type="text/javascript" charset="${_response_encoding}">
