@@ -167,4 +167,36 @@ public class CsmDiscount extends GenericModel {
 	}
 	
 	
+	public static List<CsmDiscount> findList(String jobName, String discountCode, String ucrNo,String keyword,
+			Integer size, Integer page) {
+		Logger.info(
+				"@@ list -> job_name : %s , discount_code : %s , ucr_no : %s , keyword : %s",
+				jobName, discountCode, ucrNo,keyword);
+		List<CsmDiscount> csmdiscounts = null;
+		page = page != null ? page : 1;
+		if (jobName.trim().length() == 0 && discountCode.trim().length() == 0
+				&& ucrNo.trim().length() == 0) {
+			csmdiscounts = all().fetch(page, size);
+		} else {
+			String sql = "1=1 ";
+			if (jobName != null && !"".equals(jobName)) {
+				jobName = jobName.toLowerCase();
+				sql += "AND lower(pk.jobName) like '%" + jobName + "%' ";
+			}
+			if (discountCode != null && !"".equals(discountCode)) {
+				discountCode = discountCode.toLowerCase();
+				sql += "AND lower(pk.discountCode) like '%" + discountCode
+						+ "%' ";
+			}
+			if (ucrNo != null && !"".equals(ucrNo)) {
+				ucrNo = ucrNo.toLowerCase();
+				sql += "AND lower(pk.ucrNo) like '%" + ucrNo + "%' ";
+			}
+
+			Logger.debug("@@ find with HQL : %s", sql);
+			csmdiscounts = find(sql).fetch(page, size);
+		}
+		return csmdiscounts;
+	}
+	
 }
