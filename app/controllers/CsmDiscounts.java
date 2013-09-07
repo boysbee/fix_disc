@@ -51,9 +51,7 @@ public class CsmDiscounts extends Application {
 		render(item);
 	}
 
-	public static void testResult(String jobName , String discountCode , String ucrNo , String ban, String subscriberNo){
-		render();
-	}
+	
 	public static void add() {
 		CsmDiscount item = new CsmDiscount();
 	
@@ -61,9 +59,7 @@ public class CsmDiscounts extends Application {
 	}
 
 
-	public static void testJob(String jobName, String discountCode , String ucrNo ){
-		render();
-	}
+	
 	public static void save() {
 		Logger.info("##### start save ######");
 		CsmDiscount item = new CsmDiscount();
