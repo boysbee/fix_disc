@@ -5,6 +5,7 @@ import java.util.List;
 
 import models.BillingAccount;
 import models.ResultBean;
+import models.Subscriber;
 import play.Logger;
 
 public class TestJob extends Application {
@@ -32,9 +33,13 @@ public class TestJob extends Application {
 		}
 		else
 		{
-			ban = findCurrentBan("RM");
+			ban = findCurrentBan(subscriberNo,"RM");
 			billingAccount = findBillingAccount(ban);
 		}
+		
+		String accountType = billingAccount.accountType ;
+		String accCate = billingAccount.accountCate;
+		
 		List<String> currentSoc = findCurrentSoc(ban, subscriberNo);
 		String currentPropo = findCurrentProposition(ban, subscriberNo);
 		String currentPricePlan = findCurrentPricePlan(ban, subscriberNo);
@@ -44,13 +49,16 @@ public class TestJob extends Application {
 	}
 
 	private static BillingAccount findBillingAccount(String ban) {
-		// TODO Auto-generated method stub
-		return null;
+		// TODO use BillingAccount to find account profile.
+		
+		return BillingAccount.find("ban = ?1", ban).first();
 	}
 
-	private static String findCurrentBan(String string) {
-		// TODO Auto-generated method stub
-		return null;
+	private static String findCurrentBan(String subscriberNo,String companyCode) {
+		// TODO use Subscriber to find curret customer id
+		Subscriber obj = Subscriber.find("subscriberNo = ?1 and companyCode =?2", subscriberNo,companyCode).first();
+		
+		return obj != null ? String.valueOf(obj.customerId ): null; 
 	}
 
 	private static List<String> findCurrentSoc(String ban, String subscriberNo) {
