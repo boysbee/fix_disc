@@ -19,10 +19,24 @@
                 line-height: 20px;
                 color: #333333;
                 background-color: #ffffff;
+                padding-top: 60px;
             }
         </style>
     </head>
     <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="index.html">CSM DISCOUNT</a>
+          <ul class="nav">
+            <li class="active"><a href="@{CsmDiscounts.index()}"><i class="icon-home"></i>Search</a></li>
+            <li ><a href="@{Testjob.testJob}">Test</a></li>
+          </ul>
+          <!-- <p class="pull-right">Logged in as <a href="#">username</a></p> -->
+        </div>
+      </div>
+    </div>
+    
     <div class="container">
         <div id="header" class="container-general span12">
             <!-- header here -->
@@ -43,7 +57,9 @@
 
             </div><!-- end footer -->
         </div>
+
     </div> <!-- end container -->
+
 
     </body>
 </html>
