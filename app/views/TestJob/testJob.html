@@ -13,21 +13,21 @@
       <!-- BAN -->
       <label class="control-label"  for="jobName">JOB NAME</label>
       <div class="controls">
-        <input type="text" id="jobName" name="jobName" placeholder="" value="${jobName}" class="input-xlarge">
+        <input type="text" id="jobNameText" name="jobNameText" placeholder="" value="${jobName}" class="input-xlarge">
         <p class="help-block">Please provide your test ban.</p>
       </div>
       <div class="control-group">
       <!-- UCR NO -->
       <label class="control-label"  for="ucrNo">UCR NO</label>
       <div class="controls">
-        <input type="text" id="ucrNo" name="ucrNo" placeholder="" value="${ucrNo}" class="input-xlarge">
+        <input type="text" id="ucrNoText" name="ucrNoText" placeholder="" value="${ucrNo}" class="input-xlarge">
         <p class="help-block">Please provide your test ucr.</p>
       </div>
       <div class="control-group">
       <!-- DISCOUNT -->
       <label class="control-label"  for="discountCode">DISCOUNT PLAN</label>
       <div class="controls">
-        <input type="text" id="discountCode" name="discountCode" placeholder="" value="${discountCode}" class="input-xlarge">
+        <input type="text" id="discountCodeText" name="discountCodeText" placeholder="" value="${discountCode}" class="input-xlarge">
         <p class="help-block">Please provide your test discount.</p>
       </div>
     <div class="control-group">
@@ -48,7 +48,7 @@
     <div class="control-group">
       <!-- Button -->
       <div class="controls">
-        <a class="btn btn-success" href="#">Test</button>
+        <a class="btn btn-success" href="#" id="test" name="test">Test</button>
         <a class="btn" href="@{CsmDiscounts.index()}">Back</a>  
       </div>
     </div>
@@ -61,6 +61,9 @@
 
 <script type="text/javascript" charset="${_response_encoding}">
 
+    $('#test').live('click',function(){
+      search();
+    });
     // Rebuild state
     $('#ban').val(sessvars.jobName) ;   
     $('#subscriber').val(sessvars.discountCode) ;   
@@ -70,9 +73,9 @@
     
     // Search function
     var search = function() {
-        sessvars.jobName = $('#jobName').val();
-        sessvars.discountCode = $('#discountCode').val();
-        sessvars.ucrNo = $('#ucrNo').val();
+        sessvars.jobName = $('#jobNameText').val();
+       	sessvars.discountCode = $('#discountCodeText').val();
+        sessvars.ucrNo = $('#ucrNoText').val();
         sessvars.ban = $('#ban').val();
         sessvars.subscriberNo = $('#subscriberNo').val()
         // sessvars.size = $('#size').val()
@@ -83,7 +86,11 @@
     }
     
     // Init
-    if(sessvars.jobName != undefined || sessvars.discountCode != undefined || sessvars.ucrNo != undefined || sessvars.ban != undefined || subscriberNo.subscriberNo != undefined) {
+    if(sessvars.jobName != undefined && 
+    		sessvars.discountCode != undefined && 
+    		sessvars.ucrNo != undefined && 
+    		sessvars.ban != undefined && 
+    		subscriberNo.subscriberNo != undefined) {
         $('#content').css('visibility', 'hidden')
         search()
     }

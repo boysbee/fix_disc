@@ -26,7 +26,10 @@
 </div>
 
 <div id="propoResult">
-    <span>Current Propositoin:</span><span class="label">${currentPropo}</span>
+    <span>Current Propositoin:</span><span class="label">
+    #{list currentPropo, as:'item'}
+        item.proposition
+    #{/list}</span>
      <table class="table table-striped table-condensed">
                 <thead>
             <tr>
