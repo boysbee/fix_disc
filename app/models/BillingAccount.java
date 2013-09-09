@@ -16,4 +16,7 @@ public class BillingAccount  extends GenericModel{
 	public String accountType;
 	@Column(name="ACCOUNT_CATEGORY")
 	public String accountCate;
+	public static BillingAccount findWithBan(int ban) {
+		return BillingAccount.find("ban = ?1", ban).first();
+	}
 }
