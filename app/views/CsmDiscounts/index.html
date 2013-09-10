@@ -101,28 +101,7 @@
       <div class="controls">
         <input type="text" id="keyword" name="keyword" placeholder="" class="input-xlarge">
         <p class="help-block">Please provide your search keyword.</p>
-         <script type="text/javascript">
-          var mapData = {};
-          $('#keyword').typeahead({
-              // source : arraySource
-               source: function (query, process) {
-              return $.get('/csm_discount/fill/keyword', {query : $('#keyword').val(),},
-              function (data) {
-                  var newData = [];
-                  $.each(data, function(){
-                      mapData[this.keyword] = this.keyword;
-                      newData.push(this.keyword);
-                  });
-
-              return process(newData);
-              });
-          },
-          updater: function (item) {
-              $('#keyword').val(mapData[item]);
-              return item;
-          }
-          });                                                       
-      </script>
+        
       </div>
     </div>
 <div class="control-group">

@@ -21,9 +21,7 @@ public class FillUp extends Application {
 		if("ucrNo".equals(type)){
 			list = searchUcrNo(query);
 		}
-		if("keyword".equals(type)) {
-			list = searchKeyword(query);
-		}
+		
 		if("discountCode".equals(type)) {
 			list = searchDiscountCode(query);
 		}
@@ -35,10 +33,6 @@ public class FillUp extends Application {
 		return list == null ? new ArrayList<CsmDiscount>() : list;
 	}
 
-	private static List<?> searchKeyword(String query) {
-		List<CsmDiscount> list = CsmDiscount.find("lower(keyword) like ?1" , "%" + query.toLowerCase() + "%").fetch();
-		return list == null ? new ArrayList<CsmDiscount>() : list;
-	}
 
 	private static List<?> searchUcrNo(String query) {
 		List<CsmDiscount> list = CsmDiscount.find("lower(pk.ucrNo) like ?1" , "%" + query.toLowerCase() + "%").fetch();
