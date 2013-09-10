@@ -12,6 +12,28 @@
         <input type="text" id="jobName" name="jobName" placeholder="" class="input-xlarge">
         <p class="help-block">Please provide your search job name.</p>
       </div>
+      <script type="text/javascript">
+          var mapData = {};
+          $('#jobName').typeahead({
+              // source : arraySource
+               source: function (query, process) {
+              return $.get('/csm_discount/fill/jobName', {query : $('#jobName').val(),},
+              function (data) {
+                  var newData = [];
+                  $.each(data, function(){
+                      mapData[this.pk.jobName] = this.pk.jobName;
+                      newData.push(this.pk.jobName);
+                  });
+
+              return process(newData);
+              });
+          },
+          updater: function (item) {
+              $('#jobName').val(mapData[item]);
+              return item;
+          }
+          });                                                       
+      </script>
     </div>
  
     <div class="control-group">
@@ -20,6 +42,28 @@
       <div class="controls">
         <input type="text" id="discountCode" name="discountCode" placeholder="" class="input-xlarge">
         <p class="help-block">Please provide your search discount code.</p>
+         <script type="text/javascript">
+          var mapData = {};
+          $('#discountCode').typeahead({
+              // source : arraySource
+               source: function (query, process) {
+              return $.get('/csm_discount/fill/discountCode', {query : $('#discountCode').val(),},
+              function (data) {
+                  var newData = [];
+                  $.each(data, function(){
+                      mapData[this.pk.discountCode] = this.pk.discountCode;
+                      newData.push(this.pk.discountCode);
+                  });
+
+              return process(newData);
+              });
+          },
+          updater: function (item) {
+              $('#discountCode').val(mapData[item]);
+              return item;
+          }
+          });                                                       
+      </script>
       </div>
     </div>
       <div class="control-group">
@@ -28,6 +72,28 @@
       <div class="controls">
         <input type="text" id="ucrNo" name="ucrNo" placeholder="" class="input-xlarge">
         <p class="help-block">Please provide your search ucr no.</p>
+         <script type="text/javascript">
+          var mapData = {};
+          $('#ucrNo').typeahead({
+              // source : arraySource
+               source: function (query, process) {
+              return $.get('/csm_discount/fill/ucrNo', {query : $('#ucrNo').val(),},
+              function (data) {
+                  var newData = [];
+                  $.each(data, function(){
+                      mapData[this.pk.ucrNo] = this.pk.ucrNo;
+                      newData.push(this.pk.ucrNo);
+                  });
+
+              return process(newData);
+              });
+          },
+          updater: function (item) {
+              $('#ucrNo').val(mapData[item]);
+              return item;
+          }
+          });                                                       
+      </script>
       </div>
     </div>
       <div class="control-group">
@@ -35,6 +101,28 @@
       <div class="controls">
         <input type="text" id="keyword" name="keyword" placeholder="" class="input-xlarge">
         <p class="help-block">Please provide your search keyword.</p>
+         <script type="text/javascript">
+          var mapData = {};
+          $('#keyword').typeahead({
+              // source : arraySource
+               source: function (query, process) {
+              return $.get('/csm_discount/fill/keyword', {query : $('#keyword').val(),},
+              function (data) {
+                  var newData = [];
+                  $.each(data, function(){
+                      mapData[this.keyword] = this.keyword;
+                      newData.push(this.keyword);
+                  });
+
+              return process(newData);
+              });
+          },
+          updater: function (item) {
+              $('#keyword').val(mapData[item]);
+              return item;
+          }
+          });                                                       
+      </script>
       </div>
     </div>
 <div class="control-group">

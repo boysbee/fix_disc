@@ -15,6 +15,28 @@
       <div class="controls">
         <input type="text" id="jobNameText" name="jobNameText" placeholder="" value="${jobName}" class="input-xlarge">
         <p class="help-block">Please provide your test ban.</p>
+              <script type="text/javascript">
+          var mapData = {};
+          $('#jobNameText').typeahead({
+              // source : arraySource
+               source: function (query, process) {
+              return $.get('/csm_discount/fill/jobName', {query : $('#jobNameText').val(),},
+              function (data) {
+                  var newData = [];
+                  $.each(data, function(){
+                      mapData[this.pk.jobName] = this.pk.jobName;
+                      newData.push(this.pk.jobName);
+                  });
+
+              return process(newData);
+              });
+          },
+          updater: function (item) {
+              $('#jobNameText').val(mapData[item]);
+              return item;
+          }
+          });                                                       
+      </script>
       </div>
       <div class="control-group">
       <!-- UCR NO -->
@@ -22,6 +44,28 @@
       <div class="controls">
         <input type="text" id="ucrNoText" name="ucrNoText" placeholder="" value="${ucrNo}" class="input-xlarge">
         <p class="help-block">Please provide your test ucr.</p>
+        <script type="text/javascript">
+          var mapData = {};
+          $('#ucrNoText').typeahead({
+              // source : arraySource
+               source: function (query, process) {
+              return $.get('/csm_discount/fill/ucrNo', {query : $('#ucrNoText').val(),},
+              function (data) {
+                  var newData = [];
+                  $.each(data, function(){
+                      mapData[this.pk.ucrNo] = this.pk.ucrNo;
+                      newData.push(this.pk.ucrNo);
+                  });
+
+              return process(newData);
+              });
+          },
+          updater: function (item) {
+              $('#ucrNoText').val(mapData[item]);
+              return item;
+          }
+          });                                                       
+      </script>
       </div>
       <div class="control-group">
       <!-- DISCOUNT -->
@@ -29,6 +73,28 @@
       <div class="controls">
         <input type="text" id="discountCodeText" name="discountCodeText" placeholder="" value="${discountCode}" class="input-xlarge">
         <p class="help-block">Please provide your test discount.</p>
+        <script type="text/javascript">
+          var mapData = {};
+          $('#discountCodeText').typeahead({
+              // source : arraySource
+               source: function (query, process) {
+              return $.get('/csm_discount/fill/discountCode', {query : $('#discountCodeText').val(),},
+              function (data) {
+                  var newData = [];
+                  $.each(data, function(){
+                      mapData[this.pk.discountCode] = this.pk.discountCode;
+                      newData.push(this.pk.discountCode);
+                  });
+
+              return process(newData);
+              });
+          },
+          updater: function (item) {
+              $('#discountCodeText').val(mapData[item]);
+              return item;
+          }
+          });                                                       
+      </script>
       </div>
     <div class="control-group">
       <!-- BAN -->
