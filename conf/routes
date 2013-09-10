@@ -14,6 +14,8 @@ POST	/csm_discount/save						CsmDiscounts.save
 GET		/csm_discount/testJob					TestJob.testJob
 GET     /csm_discount/testResult                TestJob.testResult
 
+GET		/csm_discount/fill/{type}				FillUp.fill
+
 # Ignore favicon requests
 
 GET     /favicon.ico                            404
