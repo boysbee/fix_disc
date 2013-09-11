@@ -16,7 +16,7 @@ public class CsmDiscounts extends Application {
 	public static void list(String jobName, String discountCode, String ucrNo,
 			String keyword, Integer size, Integer page) {
 		Logger.info(
-				"@@ list -> job_name : %s , discount_code : %s , ucr_no : %s , keyword : %s",
+				"@@ action : list -> job_name : %s , discount_code : %s , ucr_no : %s , keyword : %s",
 				jobName, discountCode, ucrNo, keyword);
 		page = page != null ? page : 1;
 		List<CsmDiscount> csmdiscounts = CsmDiscount.findList(jobName,
