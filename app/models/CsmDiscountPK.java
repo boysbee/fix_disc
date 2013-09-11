@@ -8,12 +8,15 @@ import play.data.validation.*;
 @Embeddable
 public class CsmDiscountPK implements Serializable{
 	@Required
+	@Min(5)
 	@Column(name = "JOB_NAME")
 	public String jobName;
 	@Required
+	@Min(1)
 	@Column(name = "DISCOUNT_CODE")
 	public String discountCode;
 	@Required
+	@Min(5)
 	@Column(name = "UCR_NO")
 	public String ucrNo;
 	

@@ -17,16 +17,16 @@
         <tbody>
             #{list csmdiscounts, as:'item'}
                 <tr>
-                    <td> <a href="@{show(item.pk.jobName,item.pk.ucrNo,item.pk.discountCode)}">${item.pk.jobName}</a></td>
-                    <td>${item.pk.discountCode}</td>
-                    <td>${item.pk.ucrNo}</td>
-                    <td>${item.devName}</td>
-                    <td>${item.businessOwner}</td>
-                    <td>${item.keyword}</td>
-                    <td>${item.projectStartDate}</td>
-                    <td>${item.projectEndDate}</td>
-                    <td> <a class="icon-pencil" href="@{CsmDiscounts.edit(item.pk.jobName,item.pk.ucrNo,item.pk.discountCode)}"></a></td>
-                    <td> <a class="icon-flag" href="@{TestJob.testJob(item.pk.jobName,item.pk.ucrNo,item.pk.discountCode)}"></a></td>
+                    <td> <a href="@{show(item?.pk?.jobName,item?.pk?.ucrNo,item?.pk?.discountCode)}">${item?.pk?.jobName}</a></td>
+                    <td>${item?.pk?.discountCode}</td>
+                    <td>${item?.pk?.ucrNo}</td>
+                    <td>${item?.devName}</td>
+                    <td>${item?.businessOwner}</td>
+                    <td>${item?.keyword}</td>
+                    <td>${item?.projectStartDate}</td>
+                    <td>${item?.projectEndDate}</td>
+                    <td> <a class="icon-pencil" href="@{CsmDiscounts.edit(item?.pk?.jobName,item?.pk?.ucrNo,item?.pk?.discountCode)}"></a></td>
+                    <td> <a class="icon-flag" href="@{TestJob.testJob(item?.pk?.jobName,item?.pk?.ucrNo,item?.pk?.discountCode)}"></a></td>
                 </tr>
             #{/list}
         </tbody>

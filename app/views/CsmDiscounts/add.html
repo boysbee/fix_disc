@@ -6,6 +6,16 @@
 #{set 'moreStyles'}
     <link rel="stylesheet" type="text/css" media="screen" href="@{'/public/ui-lightness/jquery-ui-1.7.2.custom.css'}" />
 #{/set}
+#{ifErrors}
+<div class="alert alert-error">
+    <h2>Oops, please correct these errors</h2>
+    <ul>
+        #{errors}
+            <li>${error}</li>
+        #{/errors}
+    </ul>
+</div>
+#{/ifErrors}
 
 <form class="form-horizontal" method="POST" action='@{save()}'>
 <fieldset>
@@ -15,9 +25,9 @@
     #{field 'item.pk.jobName'}
     <div class="control-group">
         <!-- JOB NAME -->
-      <label class="control-label"  for="jobName">Job Name</label>
+      <label class="control-label"  for="jobName">JOB NAME</label>
       <div class="controls">
-        <input type="text" size="20" name="${field.name}" id="${field.name}"   value=" ${item.pk?.jobName}">
+        <input type="text" size="20" name="${field.name}" id="${field.name}"   value="${item.pk?.jobName}">
         <span class="error">${field.error}</span>
         <p class="help-block">Please provide your job name.</p>
       </div>
@@ -28,7 +38,7 @@
         <!-- JOB NAME -->
       <label class="control-label"  for="ucrNo">UCR NO</label>
       <div class="controls">
-        <input type="text" size="20" name="${field.name}" id="${field.name}"   value=" ${item.pk?.ucrNo}">
+        <input type="text" size="20" name="${field.name}" id="${field.name}"   value="${item.pk?.ucrNo}">
         <span class="error">${field.error}</span>
         <p class="help-block">Please provide your ucr no.</p>
       </div>
@@ -40,7 +50,7 @@
         <!-- JOB NAME -->
       <label class="control-label"  for="discountCode">DISCOUNT CODE</label>
       <div class="controls">
-        <input type="text" size="20" name="${field.name}" id="${field.name}"   value=" ${item.pk?.discountCode}">
+        <input type="text" size="20" name="${field.name}" id="${field.name}"   value="${item.pk?.discountCode}">
         <span class="error">${field.error}</span>
         <p class="help-block">Please provide your discount code.</p>
       </div>
@@ -51,7 +61,7 @@
         <!-- JOB NAME -->
       <label class="control-label"  for="devName">Developer Name</label>
       <div class="controls">
-        <input type="text" size="20" name="${field.name}" id="${field.name}"   value=" ${item?.devName}">
+        <input type="text" size="20" name="${field.name}" id="${field.name}"   value="${item?.devName}">
         <span class="error">${field.error}</span>
         <p class="help-block">Please provide your developer name.</p>
       </div>
@@ -63,7 +73,7 @@
         <!-- JOB NAME -->
       <label class="control-label"  for="businessOwner">BUSINESS OWNER</label>
       <div class="controls">
-        <input type="text" size="20" name="${field.name}" id="${field.name}"   value=" ${item?.businessOwner}">
+        <input type="text" size="20" name="${field.name}" id="${field.name}"   value="${item?.businessOwner}">
         <span class="error">${field.error}</span>
         <p class="help-block">Please provide your business owner.</p>
       </div>
@@ -74,7 +84,7 @@
         <!-- JOB NAME -->
       <label class="control-label"  for="accType">ACCOUNT TYPE</label>
       <div class="controls">
-        <input type="text" size="20" name="${field.name}" id="${field.name}"   value=" ${item?.accType}">
+        <input type="text" size="20" name="${field.name}" id="${field.name}"   value="${item?.accType}">
         <span class="error">${field.error}</span>
         <p class="help-block">Please provide your account type.</p>
       </div>
@@ -110,7 +120,7 @@
         <!-- JOB NAME -->
       <label class="control-label"  for="pp">PRICE PLAN</label>
       <div class="controls">
-        <input type="text" size="20" name="${field.name}" id="${field.name}"   value=" ${item?.pp}">
+        <input type="text" size="20" name="${field.name}" id="${field.name}"   value="${item?.pp}">
         <span class="error">${field.error}</span>
         <p class="help-block">Please provide your price plan.</p>
       </div>
@@ -121,7 +131,7 @@
         <!-- JOB NAME -->
       <label class="control-label"  for="soc">SOC</label>
       <div class="controls">
-        <input type="text" size="20" name="${field.name}" id="${field.name}"   value=" ${item?.soc}">
+        <input type="text" size="20" name="${field.name}" id="${field.name}"   value="${item?.soc}">
         <span class="error">${field.error}</span>
         <p class="help-block">Please provide your soc.</p>
       </div>
@@ -132,7 +142,7 @@
         <!-- JOB NAME -->
       <label class="control-label"  for="keyword">KEYWORD</label>
       <div class="controls">
-        <input type="text" size="20" name="${field.name}" id="${field.name}"   value=" ${item?.keyword}">
+        <input type="text" size="20" name="${field.name}" id="${field.name}"   value="${item?.keyword}">
         <span class="error">${field.error}</span>
         <p class="help-block">Please provide your keyword.</p>
       </div>
@@ -144,7 +154,7 @@
         <!-- JOB NAME -->
       <label class="control-label"  for="actvCode">ACTV_CODE</label>
       <div class="controls">
-        <input type="text" size="20" name="${field.name}" id="${field.name}"   value=" ${item?.actvCode}">
+        <input type="text" size="20" name="${field.name}" id="${field.name}"   value="${item?.actvCode}">
         <span class="error">${field.error}</span>
         <p class="help-block">Please provide your activity Code.</p>
       </div>
@@ -155,7 +165,7 @@
         <!-- JOB NAME -->
       <label class="control-label"  for="actvRsnCode">ACTV_RSN_CODE</label>
       <div class="controls">
-        <input type="text" size="20" name="${field.name}" id="${field.name}"   value=" ${item?.actvRsnCode}">
+        <input type="text" size="20" name="${field.name}" id="${field.name}"   value="${item?.actvRsnCode}">
         <span class="error">${field.error}</span>
         <p class="help-block">Please provide your activity reason code.</p>
       </div>
@@ -166,7 +176,7 @@
         <!-- JOB NAME -->
       <label class="control-label"  for="benefit">BENEFIT</label>
       <div class="controls">
-        <input type="text" size="20" name="${field.name}" id="${field.name}"   value=" ${item?.benefit}">
+        <input type="text" size="20" name="${field.name}" id="${field.name}"   value="${item?.benefit}">
         <span class="error">${field.error}</span>
         <p class="help-block">Please provide your benefit.</p>
       </div>
@@ -177,7 +187,7 @@
         <!-- JOB NAME -->
       <label class="control-label"  for="advancePayment">ADVANCE PAYMENT</label>
       <div class="controls">
-        <input type="text" size="20" name="${field.name}" id="${field.name}"   value=" ${item?.advancePayment}">
+        <input type="text" size="20" name="${field.name}" id="${field.name}"   value="${item?.advancePayment}">
         <span class="error">${field.error}</span>
         <p class="help-block">Please provide your advance payment.</p>
       </div>
@@ -188,7 +198,7 @@
         <!-- JOB NAME -->
       <label class="control-label"  for="projectStartDate">PROJECT START DATE</label>
       <div class="controls">
-        <input type="text" size="20" class="datepicker" name="${field.name}" id="${field.name}"   value=" ${item?.projectStartDate}">
+        <input type="text" size="20" class="datepicker" name="${field.name}" id="${field.name}"   value="${item?.projectStartDate}">
         <span class="error">${field.error}</span>
         <p class="help-block">Please provide your project start date.</p>
       </div>
@@ -199,7 +209,7 @@
         <!-- JOB NAME -->
       <label class="control-label"  for="projectEndDate">PROJECT END DATE</label>
       <div class="controls">
-        <input type="text" size="20" class="datepicker" name="${field.name}" id="${field.name}"   value=" ${item?.projectEndDate}">
+        <input type="text" size="20" class="datepicker" name="${field.name}" id="${field.name}"   value="${item?.projectEndDate}">
         <span class="error">${field.error}</span>
         <p class="help-block">Please provide your project end date.</p>
       </div>
