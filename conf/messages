@@ -1,3 +1,16 @@
-# You can specialize this file for each language.
-# For example, for French create a messages.fr file
-#
+# Validation messages
+validation.required=%s is required
+validation.minSize=%s length must be longer than %d
+validation.range=%s value must be between %d and %d
+validation.equals=%s must be equals to %s
+validation.email=%s is not a correct email
+validation.isTrue=%s must be checked
+
+# Field names
+jobName=Job Name
+discountCode=Discount Code
+ucrNo=UCR No
+projectEndDate=Project End Date
+projectStartDate=Project Start Date
+devName=Developer Name
+businessOwner=Business Owner
