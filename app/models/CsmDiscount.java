@@ -38,8 +38,6 @@ public class CsmDiscount extends GenericModel {
 
 	}
 
-
-
 	@Column(name = "BUSINESS_OWNER")
 	public String businessOwner;
 	@Column(name = "KEYWORD")
@@ -96,31 +94,29 @@ public class CsmDiscount extends GenericModel {
 		sb.append("accCate :").append(this.accCate).append(",");
 		sb.append("benefit :").append(this.benefit).append(",");
 		sb.append("advancePayment :").append(this.advancePayment).append(",");
-		if( this.projectStartDate != null) {
-		sb.append("projectStartDate :")
-				.append(this.projectStartDate.toString()).append(",");
-		}
-		else {
+		if (this.projectStartDate != null) {
+			sb.append("projectStartDate :")
+					.append(this.projectStartDate.toString()).append(",");
+		} else {
 			sb.append("projectStartDate :").append("").append(",");
 		}
-		if(this.projectEndDate !=null) {
-			sb.append("projectEndDate :").append(this.projectEndDate.toString());	
-		}
-		else {
+		if (this.projectEndDate != null) {
+			sb.append("projectEndDate :")
+					.append(this.projectEndDate.toString());
+		} else {
 			sb.append("projectEndDate :").append("");
 		}
-		
-		if(this.sysCreationDate !=null) {
-			sb.append("sysCreationDate :").append(this.sysCreationDate.toString());	
-		}
-		else {
+
+		if (this.sysCreationDate != null) {
+			sb.append("sysCreationDate :").append(
+					this.sysCreationDate.toString());
+		} else {
 			sb.append("sysCreationDate :").append("");
 		}
-		
-		if(this.sysUpdateDate !=null) {
-			sb.append("sysUpdateDate :").append(this.sysUpdateDate.toString());	
-		}
-		else {
+
+		if (this.sysUpdateDate != null) {
+			sb.append("sysUpdateDate :").append(this.sysUpdateDate.toString());
+		} else {
 			sb.append("sysUpdateDate :").append("");
 		}
 		return sb.toString();
@@ -165,17 +161,18 @@ public class CsmDiscount extends GenericModel {
 		String source = DateUtil.date2Str(sysUpdateDate, "dd/MM/yyyy");
 		this.sysUpdateDate = DateUtil.str2Date(source, "dd/MM/yyyy");
 	}
-	
-	
-	public static List<CsmDiscount> findList(String jobName, String discountCode, String ucrNo,String keyword,
-			Integer size, Integer page) {
+
+	public static List<CsmDiscount> findList(String jobName,
+			String discountCode, String ucrNo, String keyword, Integer size,
+			Integer page) {
 		Logger.info(
-				"@@ list -> job_name : %s , discount_code : %s , ucr_no : %s , keyword : %s",
-				jobName, discountCode, ucrNo,keyword);
+				"@@ fiindList -> job_name : %s , discount_code : %s , ucr_no : %s , keyword : %s",
+				jobName, discountCode, ucrNo, keyword);
 		List<CsmDiscount> csmdiscounts = null;
 		page = page != null ? page : 1;
-		if (jobName.trim().length() == 0 && discountCode.trim().length() == 0
-				&& ucrNo.trim().length() == 0) {
+		if ((jobName != null && !"".equals(jobName))
+				&& (discountCode != null && !"".equals(discountCode))
+				&& (ucrNo != null && !"".equals(ucrNo))) {
 			csmdiscounts = all().fetch(page, size);
 		} else {
 			String sql = "1=1 ";
@@ -193,10 +190,10 @@ public class CsmDiscount extends GenericModel {
 				sql += "AND lower(pk.ucrNo) like '%" + ucrNo + "%' ";
 			}
 
-			Logger.debug("@@ find with HQL : %s", sql);
+			Logger.info("@@ find with HQL : %s", sql);
 			csmdiscounts = find(sql).fetch(page, size);
 		}
 		return csmdiscounts;
 	}
-	
+
 }

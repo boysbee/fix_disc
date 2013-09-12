@@ -6,7 +6,7 @@ validation.equals=%s must be equals to %s
 validation.email=%s is not a correct email
 validation.isTrue=%s must be checked
 
-# Field names
+# Field at add page
 jobName=Job Name
 discountCode=Discount Code
 ucrNo=UCR No
@@ -14,3 +14,22 @@ projectEndDate=Project End Date
 projectStartDate=Project Start Date
 devName=Developer Name
 businessOwner=Business Owner
+
+# Field at show page
+show.jobName=JOB NAME
+show.discountCode=DISCOUNT CODE
+show.ucrNo=UCR NO
+show.propo=PROPOSITION CODE
+show.pp=PRICE PLAN
+show.soc=SOC
+show.projectStartDate=PROJECT START DATE
+show.projectEndDate=PROJECT END DATE
+show.devName=DEVELOPER NAME
+show.businessOwner=BUSINESS OWNER
+show.actvCode=ACTV CODE
+show.actvRsnCode=ACTV RSN CODE
+show.accType=ACCOUNT TYPE
+show.accCate=ACCOUNT CATEGORY
+show.benefit=BENEFIT
+show.advancePayment=ADVANCE PAYMENT
+show.remark=REMARK

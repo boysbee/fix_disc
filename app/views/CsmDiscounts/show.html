@@ -1,61 +1,79 @@
 #{extends 'main.html' /}
 #{set title:item.pk.jobName /}
-
-<h1>View Csm Discount</h1>
-
-    <p>
-        <strong>Job Name:</strong> ${item.pk.jobName}
-    </p>
-    <p>
-        <strong>Discount Code:</strong> ${item.pk.discountCode}
-    </p>
-    <p>
-        <strong>Ucr No:</strong> ${item.pk.ucrNo}
-    </p>
-    <p>
-        <strong>Dev Name:</strong> ${item.devName}
-    </p>
-    <p>
-        <strong>Business Owner:</strong> ${item.businessOwner}
-    </p>
-    <p>
-        <strong>Proposition :</strong> ${item.propo}
-    </p>
-    <p>
-        <strong>Price plan:</strong> ${item.pp}
-    </p>
-    <p>
-        <strong>Soc :</strong> ${item.soc}
-    </p>
-    <p>
-        <strong>Actv Code:</strong> ${item.actvCode}
-    </p>
-    <p>
-        <strong>Actv Rsn Code:</strong> ${item.actvRsnCode}
-    </p>
-    <p>
-        <strong>Account Type:</strong> ${item.accType}
-    </p>
-    <p>
-        <strong>Account Category:</strong> ${item.accCate}
-    </p>
-    <p>
-        <strong>Benefit:</strong> ${item.benefit}
-    </p>
-    <p>
-        <strong>Advance Payment:</strong> ${item.benefit}
-    </p>
-    <p>
-        <strong>Remark:</strong> ${item.remark}
-    </p>
-    <p>
-        <strong>Project Start Date:</strong> ${item.projectStartDate}
-    </p>
-    <p>
-        <strong>Project End Date:</strong> ${item.projectEndDate}
-    </p>
-    
-    <p class="buttons">
-        <a class="btn" href="@{CsmDiscounts.index()}">Back to search</a>      
-    </p>
-
+<div class="well">
+    <div id="legend">
+      <legend class="">Job Discount</legend>
+    </div>
+    <div class="row-fluid">
+        <div class="span3"><label>&{'show.jobName'}</label></div>
+        <div class="span9"><span>${item.pk?.jobName}</span></div>
+    </div>
+    <div class="row-fluid">
+        <div class="span3"><label>&{'show.discountCode'}</label></div>
+        <div class="span9"><span>${item.pk?.discountCode}</span></div>
+    </div>
+    <div class="row-fluid">
+        <div class="span3"><label>&{'show.ucrNo'}</label></div>
+        <div class="span9"><span>${item.pk?.ucrNo}</span></div>
+    </div>
+    <div class="row-fluid">
+        <div class="span3"><label>&{'show.devName'}</label></div>
+        <div class="span9"><span>${item.devName}</span></div>
+    </div>
+    <div class="row-fluid">
+        <div class="span3"><label>&{'show.businessOwner'}</label></div>
+        <div class="span9"><span>${item.businessOwner}</span></div>
+    </div>
+    <div class="row-fluid">
+        <div class="span3"><label>&{'show.propo'}</label></div>
+        <div class="span9"><span>${item.propo}</span></div>
+    </div>
+    <div class="row-fluid">
+        <div class="span3"><label>&{'show.pp'}</label></div>
+        <div class="span9"><span>${item.pp}</span></div>
+    </div>
+    <div class="row-fluid">
+        <div class="span3"><label>&{'show.soc'}</label></div>
+        <div class="span9"><span>${item.soc}</span></div>
+    </div>
+    <div class="row-fluid">
+        <div class="span3"><label>&{'show.actvCode'}</label></div>
+        <div class="span9"><span>${item.actvCode}</span></div>
+    </div>
+    <div class="row-fluid">
+        <div class="span3"><label>&{'show.actvRsnCode'}</label></div>
+        <div class="span9"><span>${item.actvRsnCode}</span></div>
+    </div>
+    <div class="row-fluid">
+        <div class="span3"><label>&{'show.accType'}</label></div>
+        <div class="span9"><span>${item.accType}</span></div>
+    </div>
+    <div class="row-fluid">
+        <div class="span3"><label>&{'show.accCate'}</label></div>
+        <div class="span9"><span>${item.accCate}</span></div>
+    </div>
+    <div class="row-fluid">
+        <div class="span3"><label>&{'show.benefit'}</label></div>
+        <div class="span9"><span>${item.benefit}</span></div>
+    </div>
+    <div class="row-fluid">
+        <div class="span3"><label>&{'show.advancePayment'}</label></div>
+        <div class="span9"><span>${item.advancePayment}</span></div>
+    </div>
+    <div class="row-fluid">
+        <div class="span3"><label>&{'show.projectStartDate'}</label></div>
+        <div class="span9"><span>${item.projectStartDate}</span></div>
+    </div>
+    <div class="row-fluid">
+        <div class="span3"><label>&{'show.projectEndDate'}</label></div>
+        <div class="span9"><span>${item.projectEndDate}</span></div>
+    </div>
+    <div class="row-fluid">
+        <div class="span3"><label>&{'show.remark'}</label></div>
+        <div class="span9"><span>${item.remark}</span></div>
+    </div>
+    <div class="row-fluid">
+        <div class="span3"><a class="btn" href="@{CsmDiscounts.index()}">Back to search</a>      </div>
+        <div class="span9"></div>
+    </div>
+<div>    
