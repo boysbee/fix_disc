@@ -76,6 +76,9 @@ public class TestJob extends Application {
 			currentBan = findCurrentBan(subscriberNo, "RM");
 			billingAccount = findBillingAccount(currentBan);
 		}
+		if( billingAccount == null) {
+			notFoundIfNull(billingAccount);
+		}
 		currentBan = billingAccount.ban;
 		String accountType = billingAccount.accountType;
 		String accCate = billingAccount.accountCate;

@@ -57,6 +57,6 @@ public class ServiceAgreement extends GenericModel {
 	public static String findCurrentPricePlan(int ban , String subscriberNo) {
 		ServiceAgreement obj = ServiceAgreement.find("pk.ban = ?1 and pk.subscriberNo = ?2 and serviceType = 'P' and effectiveDate <= sysdate and ( expirationDate >= sysdate or expirationDate is NULL) ",ban,subscriberNo).first();
 		
-		return obj.soc;
+		return obj == null ? "" :  obj.soc == null ? "" : obj.soc ;
 	}
 }
