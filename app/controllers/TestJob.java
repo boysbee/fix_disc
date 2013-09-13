@@ -26,6 +26,8 @@ public class TestJob extends Application {
 
 	public static void testResult(String jobName, String discountCode,
 			String ucrNo, String ban, String subscriberNo) {
+		ban = ban.trim();
+		subscriberNo = subscriberNo.trim();
 		Logger.info(
 				"@@ testResult -> job_name : %s,discount code : %s , ucr_no : %s , ban : %s , subscriber_no : %s",
 				jobName, discountCode, ucrNo, ban, subscriberNo);
@@ -33,14 +35,14 @@ public class TestJob extends Application {
 		java.util.List<models.ResultBean> resultPropositions = new java.util.ArrayList<models.ResultBean>();
 		java.util.List<models.ResultBean> resultSocs = new java.util.ArrayList<models.ResultBean>();
 		// csm_discount data
-		
+
 		CsmDiscount data = CsmDiscount.findById(new CsmDiscountPK(jobName,
 				discountCode, ucrNo));
-		Logger.info("@@ testResult find CSM_DISCOUNT -> %s",data.toString() );
+		Logger.info("@@ testResult find CSM_DISCOUNT -> %s", data.toString());
 		List<String> propositionExpected = new ArrayList<String>();
 		List<String> pricePlanExpected = new ArrayList<String>();
 		List<String> socExpected = new ArrayList<String>();
-		
+
 		if (data != null && data.propo != null && !"".equals(data.propo)) {
 			if (data.propo.indexOf(",") > 0) {
 				propositionExpected = Arrays.asList(data.propo.split(","));
@@ -76,7 +78,7 @@ public class TestJob extends Application {
 			currentBan = findCurrentBan(subscriberNo, "RM");
 			billingAccount = findBillingAccount(currentBan);
 		}
-		if( billingAccount == null) {
+		if (billingAccount == null) {
 			notFoundIfNull(billingAccount);
 		}
 		currentBan = billingAccount.ban;
@@ -93,8 +95,9 @@ public class TestJob extends Application {
 		resultPriceplans = mockResultPricePlan(pricePlanExpected,
 				currentPricePlan);
 		resultPropositions = mockResultPropo(propositionExpected, currentPropo);
-		resultSocs = mockResultSoc(socExpected,currentSoc);
-
+		resultSocs = mockResultSoc(socExpected, currentSoc);
+		Logger.info("@@ current proposition -> %s",
+				ObjectUtils.reflectionAllToString(currentPropo));
 		render(currentPricePlan, currentPropo, resultPriceplans,
 				resultPropositions, resultSocs);
 	}
@@ -129,48 +132,52 @@ public class TestJob extends Application {
 
 	private static java.util.List<models.ResultBean> mockResultPricePlan(
 			List<String> pricePlanExpected, String currentPricePlan) {
-		
+
 		java.util.List<models.ResultBean> resultPriceplans = new java.util.ArrayList<models.ResultBean>();
-		String result= "";
+		String result = "";
 		for (String pp : pricePlanExpected) {
 			result = "fail";
-			if(pp.equals(currentPricePlan)) {
+			if (pp.equals(currentPricePlan)) {
 				result = "pass";
 			}
-			resultPriceplans.add(new ResultBean(pp,result));
+			resultPriceplans.add(new ResultBean(pp, result));
 		}
-		
+
 		return resultPriceplans;
 	}
 
-	private static java.util.List<models.ResultBean> mockResultPropo(List<String> propositionExpected, List<SubscriberContract> currentPropo) {
+	private static java.util.List<models.ResultBean> mockResultPropo(
+			List<String> propositionExpected,
+			List<SubscriberContract> currentPropo) {
 		java.util.List<models.ResultBean> resultPropositions = new java.util.ArrayList<models.ResultBean>();
 		String result = "";
 		for (String proposition : propositionExpected) {
 			result = "fail";
-			for(SubscriberContract contract : currentPropo) {
-				if( proposition.equals(contract.proposition )) {
+			for (SubscriberContract contract : currentPropo) {
+				if (proposition.equals(contract.proposition)) {
 					result = "pass";
 				}
 			}
 			resultPropositions.add(new ResultBean(proposition, result));
-			
+
 		}
-		Logger.debug("@@ test proposition -> %s ",ObjectUtils.reflectionAllToString(resultPropositions));
+		Logger.debug("@@ test proposition -> %s ",
+				ObjectUtils.reflectionAllToString(resultPropositions));
 		return resultPropositions;
 	}
 
-	private static java.util.List<models.ResultBean> mockResultSoc(List<String> socExpected, List<ServiceAgreement> currentSoc) {
+	private static java.util.List<models.ResultBean> mockResultSoc(
+			List<String> socExpected, List<ServiceAgreement> currentSoc) {
 		java.util.List<models.ResultBean> resultSoc = new java.util.ArrayList<models.ResultBean>();
 		String result = "";
 		for (String soc : socExpected) {
 			result = "fail";
-			for(ServiceAgreement serviceAgreement : currentSoc) {
-				if( soc.equals(serviceAgreement.soc )) {
+			for (ServiceAgreement serviceAgreement : currentSoc) {
+				if (soc.equals(serviceAgreement.soc)) {
 					result = "pass";
 				}
 			}
-			resultSoc.add(new ResultBean(soc, result));	
+			resultSoc.add(new ResultBean(soc, result));
 		}
 
 		return resultSoc;
