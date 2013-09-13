@@ -10,15 +10,11 @@ public class SubscriberTest extends UnitTest{
 	public void findCurrentBan(){
 		int ban = -1;
 		
-		String subscriberNo = "0910790690";
+		String subscriberNo = "0863425243";
 		String companyCode ="RM";
-		Subscriber obj = Subscriber.find("subscriberNo = ?1 and companyCode =?2", subscriberNo , companyCode).first();
-		
-		ban = obj.customerId;
-		assertEquals(500006121, ban);
-		
+				
 		int ban2 = Subscriber.findCurrentBan(subscriberNo,companyCode);
 		
-		assertEquals(500006121, ban2);
+		assertEquals(897064401, ban2);
 	}
 }

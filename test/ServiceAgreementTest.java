@@ -12,8 +12,8 @@ public class ServiceAgreementTest extends UnitTest{
 	public void findSocList(){
 		// given
 		List socList = null;
-		int ban = 500006121;
-		String subscriberNo = "0910790690";
+		int ban = 898408975;
+		String subscriberNo = "0886054168";
 		// when
 		socList = ServiceAgreement.findSocList(ban , subscriberNo);
 		// then
@@ -22,8 +22,8 @@ public class ServiceAgreementTest extends UnitTest{
 
 	@Test 
 	public void findCurrentPricePlan(){
-		int ban = 857244410;
-		String subscriberNo = "0830156708";
+		int ban = 898408975;
+		String subscriberNo = "0886054168";
 
 		String pp = ServiceAgreement.findCurrentPricePlan(ban,subscriberNo);
 
