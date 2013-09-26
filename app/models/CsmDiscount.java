@@ -133,7 +133,7 @@ public class CsmDiscount extends GenericModel {
 	}
 
 	public java.util.Date getProjectEndDate() {
-		String source = DateUtil.date2Str(projectStartDate, "dd/MM/yyyy");
+		String source = DateUtil.date2Str(projectEndDate, "dd/MM/yyyy");
 		return DateUtil.str2Date(source, "dd/MM/yyyy");
 	}
 
@@ -194,6 +194,55 @@ public class CsmDiscount extends GenericModel {
 			csmdiscounts = find(sql).fetch(page, size);
 		}
 		return csmdiscounts;
+	}
+	
+	public String getPrettyPP() {
+		StringBuilder sb = new StringBuilder();
+		String[] p = null;
+		if(this.pp!=null && !"".equals(this.pp) ) {
+			p = pp.split(",");
+			
+			for (int pIndex = 0; pIndex < p.length; pIndex++) {
+				if( pIndex % 4 ==0) {
+					sb.append(p[pIndex]);
+					sb.append("\n");
+				}
+				else 
+				{
+					sb.append(p[pIndex]);
+					sb.append(",");
+				}
+			}
+		}
+		String result = sb.toString();
+		if(result.lastIndexOf(",") > 0) {
+			result = result.substring(0,result.length() -1);
+		}
+		return result;
+	}
+	public String getPrettyPropo() {
+		StringBuilder sb = new StringBuilder();
+		String[] p = null;
+		if(this.propo!=null && !"".equals(this.propo) ) {
+			p = propo.split(",");
+			
+			for (int pIndex = 0; pIndex < p.length; pIndex++) {
+				if( pIndex % 4 ==0) {
+					sb.append(p[pIndex]);
+					sb.append("\n");
+				}
+				else 
+				{
+					sb.append(p[pIndex]);
+					sb.append(",");
+				}
+			}
+		}
+		String result = sb.toString();
+		if(result.lastIndexOf(",") > 0) {
+			result = result.substring(0,result.length() -1);
+		}
+		return result;
 	}
 
 }

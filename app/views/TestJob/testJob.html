@@ -2,9 +2,6 @@
 #{set title:'Test' /}
 
 <form class="well form-horizontal" method="POST">
-    <input type="hidden" id="ucrNo" name="ucrNo" value="${ucrNo}">
-    <input type="hidden" id="jobName" name="jobName" value="${jobName}">
-    <input type="hidden" id="discountCode" name="discountCode" value="${discountCode}">
   <fieldset>
     <div id="legend">
       <legend class="">Test Job Discount</legend>
@@ -13,7 +10,7 @@
       <!-- BAN -->
       <label class="control-label"  for="jobName">JOB NAME</label>
       <div class="controls">
-        <input type="text" id="jobNameText" name="jobNameText" placeholder="" value="${jobName}" class="input-xlarge">
+        <input type="text" id="jobNameText" name="jobNameText" placeholder="" value="" class="input-xlarge">
         <p class="help-block">Please provide your test ban.</p>
               <script type="text/javascript">
           var mapData = {};
@@ -71,7 +68,7 @@
       <!-- DISCOUNT -->
       <label class="control-label"  for="discountCode">DISCOUNT PLAN</label>
       <div class="controls">
-        <input type="text" id="discountCodeText" name="discountCodeText" placeholder="" value="${discountCode}" class="input-xlarge">
+        <input type="text" id="discountCodeText" name="discountCodeText" placeholder="" value="" class="input-xlarge">
         <p class="help-block">Please provide your test discount.</p>
         <script type="text/javascript">
           var mapData = {};
@@ -131,11 +128,11 @@
       search();
     });
     // Rebuild state
-    $('#ban').val(sessvars.jobName) ;   
-    $('#subscriber').val(sessvars.discountCode) ;   
-    $('#ucrNoText').val(sessvars.ucrNo) ;   
-    $('#jobNameText').val(sessvars.jobName);
-    $('#discountCodeText').val(sessvars.discountCode);
+    $('#ban').val('') ;   
+    $('#subscriber').val('') ;   
+    $('#ucrNoText').val('${ucrNo}') ;   
+    $('#jobNameText').val('${jobName}');
+    $('#discountCodeText').val('${discountCode}');
     
     // Search function
     var search = function() {

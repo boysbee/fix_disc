@@ -162,14 +162,6 @@
         sessvars.page = 1
         search()
     })
-    // $('#jobName').keyup(function() {
-    //     sessvars.page = 1
-    //     search()
-    // })
-    // $('#keyword').keyup(function() {
-    //     sessvars.page = 1
-    //     search()
-    // })
     $('#nextPage').live('click', function(e) {
         sessvars.page = $(this).attr('href')
         e.preventDefault()

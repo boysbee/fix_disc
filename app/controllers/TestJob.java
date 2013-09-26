@@ -21,7 +21,10 @@ public class TestJob extends Application {
 		Logger.info(
 				"@@ testJob -> job_name : %s,discount code : %s , ucr_no : %s",
 				jobName, discountCode, ucrNo);
-		render(jobName, discountCode, ucrNo);
+		renderArgs.put("jobName", jobName);
+		renderArgs.put("discountCode", discountCode);
+		renderArgs.put("ucrNo", ucrNo);
+		render();
 	}
 
 	public static void testResult(String jobName, String discountCode,

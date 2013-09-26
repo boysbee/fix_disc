@@ -67,7 +67,7 @@ public class CsmDiscounts extends Application {
 			item.benefit = params.get("item.benefit");
 			item.advancePayment = params.get("item.advancePayment");
 			String projectStartDate = params.get("item.projectStartDate");
-			String projectEndDate = params.get("item.projectStartDate");
+			String projectEndDate = params.get("item.projectEndDate");
 			item.remark = params.get("item.remark");
 			item.setProjectStartDate(DateUtil.convertDate(projectStartDate,
 					"yyyy-MM-dd", "dd/MM/yyyy"));
@@ -86,7 +86,7 @@ public class CsmDiscounts extends Application {
 			validation.minSize(item.pk.ucrNo, 5).key("urcNo");
 			validation.required(item.getProjectStartDate()).key(
 					"projectStartDate");
-			validation.required(item.getProjectEndDate()).key("projectEndDate");
+//			validation.required(item.getProjectEndDate()).key("projectEndDate");
 			validation.required(item.devName).key("devName");
 			validation.required(item.businessOwner).key("businessOwner");
 
@@ -131,7 +131,7 @@ public class CsmDiscounts extends Application {
 		item.benefit = params.get("item.benefit");
 		item.advancePayment = params.get("item.advancePayment");
 		String projectStartDate = params.get("item.projectStartDate");
-		String projectEndDate = params.get("item.projectStartDate");
+		String projectEndDate = params.get("item.projectEndDate");
 		item.remark = params.get("item.remark");
 		item.setProjectStartDate(DateUtil.convertDate(projectStartDate,
 				"yyyy-MM-dd", "dd/MM/yyyy"));
@@ -149,7 +149,7 @@ public class CsmDiscounts extends Application {
 		validation.required(item.pk.ucrNo).key("ucrNo");
 		validation.minSize(item.pk.ucrNo, 5).key("urcNo");
 		validation.required(item.getProjectStartDate()).key("projectStartDate");
-		validation.required(item.getProjectEndDate()).key("projectEndDate");
+//		validation.required(item.getProjectEndDate()).key("projectEndDate");
 		validation.required(item.devName).key("devName");
 		validation.required(item.businessOwner).key("businessOwner");
 
